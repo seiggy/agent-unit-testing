@@ -1,0 +1,35 @@
+# Ignore source control and metadata
+.git
+.gitignore
+
+# Build outputs
+bin/
+obj/
+[Bb]uild/
+[Dd]ebug*/
+[Rr]elease*/
+
+# IDE tooling
+.vs/
+.vscode/
+
+# Dependencies and caches
+node_modules/
+
+# Logs and temp files
+*.log
+*.log.*
+*.tmp
+*.swp
+
+# Environment files
+.env
+.env.*
+.envrc
+
+# Coverage and test artifacts
+coverage/
+
+# Docker artifacts
+Dockerfile*
+.dockerignore

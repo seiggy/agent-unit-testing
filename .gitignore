@@ -216,3 +216,6 @@ fabric.properties
 
 
 # End of https://www.toptal.com/developers/gitignore/api/openframeworks+visualstudio,visualstudiocode,rider,dotnetcore,dotenv,git
+.fake
+
+specs/
