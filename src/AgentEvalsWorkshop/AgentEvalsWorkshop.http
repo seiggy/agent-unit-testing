@@ -1,0 +1,6 @@
+@AgentEvalsWorkshop_HostAddress = http://localhost:5008
+
+GET {{AgentEvalsWorkshop_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

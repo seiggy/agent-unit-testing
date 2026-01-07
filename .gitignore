@@ -219,3 +219,5 @@ fabric.properties
 .fake
 
 specs/
+infra/seed/seed-data.embedded.json
+.env*

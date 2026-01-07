@@ -1,0 +1,15 @@
+<Solution>
+  <Configurations>
+    <Platform Name="Any CPU" />
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Folder Name="/src/">
+    <Project Path="src/AgentEvalsWorkshop.AppHost/AgentEvalsWorkshop.AppHost.csproj" />
+    <Project Path="src/AgentEvalsWorkshop.ServiceDefaults/AgentEvalsWorkshop.ServiceDefaults.csproj" />
+    <Project Path="src/AgentEvalsWorkshop/AgentEvalsWorkshop.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/AgentEvalsWorkshop.Tests/AgentEvalsWorkshop.Tests.csproj" />
+  </Folder>
+</Solution>

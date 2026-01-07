@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "id": { "type": "string", "format": "uuid" },
+      "title": { "type": "string" },
+      "body": { "type": "string" },
+      "tags": { "type": "array", "items": { "type": "string" } },
+      "embedding": {
+        "type": ["array", "null"],
+        "items": { "type": "number" },
+        "minItems": 1536,
+        "maxItems": 1536,
+        "description": "Optional offline override; when omitted, embeddings are generated deterministically in SQL."
+      }
+    },
+    "required": ["id", "title", "body", "tags"],
+    "additionalProperties": false
+  }
+}
