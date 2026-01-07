@@ -16,16 +16,17 @@ This workshop teaches you how to build reliable AI agents by implementing struct
 
 The solution is built using **.NET Aspire** for distributed application orchestration:
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│                     AppHost (Aspire)                        │
-├─────────────────────────────────────────────────────────────┤
-│  ┌─────────────────┐  ┌─────────────────┐  ┌─────────────┐  │
-│  │  Agent Service  │  │ Azure Postgres  │  │ Azure AI    │  │
-│  │  (ASP.NET Core) │◄─┤ (pgvector)      │  │ Foundry     │  │
-│  └─────────────────┘  └─────────────────┘  │ (GPT-4o)    │  │
-│                                            └─────────────┘  │
-└─────────────────────────────────────────────────────────────┘
+```mermaid
+flowchart TB
+    subgraph AppHost["AppHost (Aspire)"]
+        direction LR
+        Agent["Agent Service<br/>(ASP.NET Core)"]
+        Postgres[("Azure Postgres<br/>(pgvector)")]
+        Foundry["Azure AI Foundry<br/>(GPT-4o)"]
+        
+        Agent <--> Postgres
+        Agent <--> Foundry
+    end
 ```
 
 ### Projects
