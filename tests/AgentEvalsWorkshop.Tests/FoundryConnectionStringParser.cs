@@ -10,6 +10,7 @@ public sealed class FoundryConnectionStringParts
     public string? ApiKey { get; private set; }
     public string? Deployment { get; private set; } = null!;
     public TokenCredential? TokenCredential { get; private set; }
+    public Uri OpenAIEndpoint { get; private set;  } = null!;
 
     internal void ParseConnectionString(string? connectionString)
     {
@@ -57,10 +58,34 @@ public sealed class FoundryConnectionStringParts
         if (connectionBuilder.TryGetValue("EndpointAIInference", out var endpoint) && Uri.TryCreate(endpoint as string, UriKind.Absolute, out var serviceUri))
         {
             Endpoint = serviceUri;
+
+            // swap the AI Inference path to OpenAI path
+            if (Endpoint.Segments.Contains("models"))
+            {
+                var openAiEndpoint = endpoint as string;
+                openAiEndpoint = openAiEndpoint!.Replace("/models", "/openai/v1");
+                OpenAIEndpoint = new Uri(openAiEndpoint);
+            }
+            else
+            {
+                OpenAIEndpoint = Endpoint;
+            }
         }
         else if (connectionBuilder.TryGetValue("Endpoint", out endpoint) && Uri.TryCreate(endpoint as string, UriKind.Absolute, out serviceUri))
         {
             Endpoint = serviceUri;
+
+            // swap the AI Inference path to OpenAI path
+            if (Endpoint.Segments.Contains("models"))
+            {
+                var openAiEndpoint = endpoint as string;
+                openAiEndpoint = openAiEndpoint!.Replace("/models", "/openai/v1");
+                OpenAIEndpoint = new Uri(openAiEndpoint);
+            }
+            else
+            {
+                OpenAIEndpoint = Endpoint;
+            }
         }
         
         if (connectionBuilder.TryGetValue("Key", out var key) && key is string apiKey)

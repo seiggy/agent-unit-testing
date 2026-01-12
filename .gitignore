@@ -221,3 +221,5 @@ fabric.properties
 specs/
 infra/seed/seed-data.embedded.json
 .env*
+
+test-report.html

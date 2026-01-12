@@ -11,12 +11,13 @@
     <OutputType>Exe</OutputType>
     <EnablePreviewFeatures>true</EnablePreviewFeatures>
     <UserSecretsId>a28c40c0-577e-41df-aa2b-0163c87d3d10</UserSecretsId>
+    <NoWarn>AIEVAL001;MEAI001</NoWarn>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Aspire.Hosting.Testing" Version="13.1.0" />
     <PackageReference Include="Azure.AI.Inference" Version="1.0.0-beta.*" />
-    <PackageReference Include="Azure.AI.OpenAI" Version="2.1.0" />
+    <PackageReference Include="Azure.AI.OpenAI" Version="2.5.0-beta.*" />
     <PackageReference Include="Azure.Identity" Version="1.17.1" />
     <PackageReference Include="Microsoft.Extensions.AI" Version="10.1.1" />
     <PackageReference Include="Microsoft.Extensions.AI.AzureAIInference" Version="10.0.0-preview.*" />
@@ -38,6 +39,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\AgentEvalsWorkshop.AppHost\AgentEvalsWorkshop.AppHost.csproj" />
+    <ProjectReference Include="..\..\src\AgentEvalsWorkshop\AgentEvalsWorkshop.csproj" />
   </ItemGroup>
 
   <ItemGroup>
