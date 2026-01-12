@@ -9,6 +9,7 @@ using Microsoft.Extensions.AI.Evaluation;
 using Microsoft.Extensions.AI.Evaluation.Reporting;
 using Microsoft.Extensions.AI.Evaluation.Reporting.Storage;
 using Microsoft.Extensions.Logging;
+using System.ClientModel.Primitives;
 
 namespace AgentEvalsWorkshop.Tests
 {
@@ -68,28 +69,44 @@ namespace AgentEvalsWorkshop.Tests
                 throw new InvalidOperationException("Run aspire app host first, and ensure the chat deployment is available.");
             }
 
-            s_chatConfiguration = GetAzureOpenAIChatConfiguration(chatConnectionString)
+            var loggerFactory = s_appHost.Services.GetRequiredService<ILoggerFactory>();
+
+            s_chatConfiguration = GetAzureOpenAIChatConfiguration(chatConnectionString, "chat", loggerFactory)
                 ?? throw new InvalidOperationException("Failed to create ChatConfiguration from connection string.");
 
             services.AddSingleton(s_chatConfiguration.ChatClient);
+            
+            var secondaryRegion = await s_appHost
+                .GetConnectionStringAsync("smarter-chat", context.CancellationTokenSource.Token);
+
+
+            var smarterChat = GetAzureOpenAIChatConfiguration(secondaryRegion, "smarter-chat", loggerFactory);
+            services.AddKeyedSingleton<IChatClient>("smarter-chat", smarterChat.ChatClient);
+
             ServiceProvider =
                 services.BuildServiceProvider();
         }
 
-        private static ChatConfiguration GetAzureOpenAIChatConfiguration(string connectionString)
+        private static ChatConfiguration GetAzureOpenAIChatConfiguration(string connectionString, string chatDeployment, ILoggerFactory loggerFactory)
         {
             var chatConfiguration = new FoundryConnectionStringParts();
             chatConfiguration.ParseConnectionString(connectionString);
 
             var credential = chatConfiguration.TokenCredential ?? new DefaultAzureCredential();
+
+            // Configure exponential backoff retry policy for handling 429 rate limiting errors
+            var retryPolicy = new ClientRetryPolicy(maxRetries: 5, enableLogging: true, loggerFactory: loggerFactory);
             var options = new AzureOpenAIClientOptions(AzureOpenAIClientOptions.ServiceVersion.V2025_04_01_Preview)
             {
                 Audience = "https://cognitiveservices.azure.com/.default",
+                RetryPolicy = retryPolicy
             };
+
             var baseUri = new Uri(chatConfiguration.Endpoint.AbsoluteUri.Replace("/models", "").Replace("services.ai", "cognitiveservices"));
             IChatClient azureClient = new AzureOpenAIClient(
                     baseUri,
-                    new AzureCliCredential()
+                    new AzureCliCredential(),
+                    options: options
                 )
                 .GetChatClient(chatConfiguration.Deployment)
                 .AsIChatClient();

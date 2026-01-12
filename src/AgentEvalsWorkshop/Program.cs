@@ -5,6 +5,7 @@ using Azure.AI.OpenAI;
 using Aspire.Azure.AI.Inference;
 using Microsoft.Extensions.Azure;
 using Azure.Identity;
+using AgentEvalsWorkshop.Helpers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +14,22 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddOpenApi();
 
 var endpoint = new Uri($"{builder.Configuration["CHAT_URI"]}/openai/v1/");
+
+var secondaryEndpoint = ConnectionStringParser.GetEndpointFromConnectionString(builder.Configuration.GetConnectionString("smarter-chat")!);
+
+builder.Services.AddKeyedChatClient("smarter-chat", new AzureOpenAIClient(
+    secondaryEndpoint,
+    new DefaultAzureCredential(),
+    new AzureOpenAIClientOptions(AzureOpenAIClientOptions.ServiceVersion.V2025_04_01_Preview)
+    {
+        ClientLoggingOptions = new System.ClientModel.Primitives.ClientLoggingOptions
+        {
+            EnableMessageContentLogging = true,
+            EnableLogging = true,
+        }
+    })
+    .GetChatClient("smarter-chat")
+    .AsIChatClient());
 
 builder.Services.AddSingleton(_ => new AzureOpenAIClient(
     endpoint,
