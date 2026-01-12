@@ -80,34 +80,56 @@ dotnet test tests/AgentEvalsWorkshop.Tests
 
 ## 📚 Workshop Exercises
 
-The workshop is structured into three progressive user stories:
+The workshop is structured into five progressive exercises:
 
-### US1: Retrieval & Tool Accuracy
-**Goal:** Make the agent pass `RetrievalEvaluator` and `ToolCallAccuracyEvaluator`
+### US0: Introduction & Environment Setup
+**Goal:** Set up your development environment and configure Azure AI Foundry connectivity
 
-- Configure proper retrieval with `top_k=3`
-- Validate tool calls match expected signatures
-- Use seeded PostgreSQL data with pgvector embeddings
+- Clone and open the workshop repository
+- Understand the solution structure
+- Configure Azure AI Foundry credentials
+- Verify the Aspire AppHost starts successfully
 
-📄 [Full Instructions](exercises/US1-retrieval-tool.md)
+📄 [Full Instructions](exercises/US0-intro.md)
 
-### US2: Task Adherence & Intent Resolution
-**Goal:** Achieve ≥0.90 on `TaskAdherenceEvaluator` and `IntentResolutionEvaluator`
+### US1: TaskAdherenceEvaluator
+**Goal:** Learn to use the TaskAdherenceEvaluator to evaluate agent tool usage
 
-- Align agent responses to task briefs
-- Handle ambiguous user inputs correctly
-- Add disambiguation logic and rules
+- Configure AI evaluation reporting
+- Use TaskAdherenceEvaluator to measure agent performance
+- Write integration tests for AI agents
+- Interpret evaluation metrics and assertions
 
-📄 [Full Instructions](exercises/US2-adherence-intent.md)
+📄 [Full Instructions](exercises/US1-taskadheranceeval.md)
 
-### US3: Meta-Prompt Improvement Loop
-**Goal:** Improve baseline prompt to ≥0.80 evaluation score
+### US2: Retrieval Evaluation with Built-in Evaluators
+**Goal:** Use multiple built-in evaluators (Relevance, Coherence, Groundedness) together
 
-- Iterate on prompt structure and instructions
+- Use data-driven tests to evaluate multiple scenarios
+- Work with GroundednessEvaluatorContext for knowledge base validation
+- Interpret evaluation metrics from multiple evaluators simultaneously
+
+📄 [Full Instructions](exercises/US2-retrievalevaluator.md)
+
+### US3: Creating a Custom Evaluator
+**Goal:** Build a custom AnswerScoringEvaluator using the LLM-as-Judge pattern
+
+- Implement the `IEvaluator` interface
+- Create custom EvaluationContext classes
+- Use structured output from LLMs with `GetResponseAsync<T>()`
+- Integrate custom evaluators with built-in evaluators
+
+📄 [Full Instructions](exercises/US3-customevaluator.md)
+
+### US4: Meta-Prompt Improvement Loop
+**Goal:** Build a PromptImprovementGenerator for evaluation-driven development
+
+- Iterate on prompt structure using AI-generated improvements
+- Analyze test failures to automatically suggest improved prompts
 - Track improvement trajectory across iterations
 - Document prompt engineering decisions
 
-📄 [Full Instructions](exercises/US3-meta-prompt.md)
+📄 [Full Instructions](exercises/US4-meta-prompt.md)
 
 ## 🧪 Evaluation Framework
 
@@ -126,20 +148,21 @@ var wordCountEvaluator = new WordCountEvaluator();
 |-----------|---------|
 | `RelevanceEvaluator` | Measures response relevance to the query |
 | `CoherenceEvaluator` | Assesses logical flow and clarity |
-| `WordCountEvaluator` | Custom evaluator for response length constraints |
 | `ToolCallAccuracyEvaluator` | Validates correct tool invocations |
 | `TaskAdherenceEvaluator` | Checks compliance with task instructions |
 | `IntentResolutionEvaluator` | Measures disambiguation accuracy |
-| `MetaPromptEvaluator` | Evaluates prompt effectiveness |
+
 
 ## 📁 Project Structure
 
 ```
 agent-unit-testing/
 ├── exercises/                    # Workshop exercise instructions
-│   ├── US1-retrieval-tool.md
-│   ├── US2-adherence-intent.md
-│   └── US3-meta-prompt.md
+│   ├── US0-intro.md              # Introduction & Environment Setup
+│   ├── US1-taskadheranceeval.md  # TaskAdherenceEvaluator
+│   ├── US2-retrievalevaluator.md # Retrieval Evaluation with Built-in Evaluators
+│   ├── US3-customevaluator.md    # Creating a Custom Evaluator
+│   └── US4-meta-prompt.md        # Meta-Prompt Improvement Loop
 ├── infra/
 │   ├── scripts/                  # Infrastructure scripts
 │   └── seed/                     # Seed data for PostgreSQL
