@@ -540,7 +540,7 @@ public async Task ImproveInstructions_SuggestsPromptChanges()
 
     // Step 2: Get the chat client
     using var scope = ServiceProvider!.CreateScope();
-    var chatClient = scope.ServiceProvider.GetRequiredKeyedService<IChatClient>("smarter-chat");
+    var chatClient = scope.ServiceProvider.GetRequiredService<IChatClient>();
 
     // TODO: Step 3 - Run scenarios
     // TODO: Step 4 - Generate improved prompt
@@ -767,7 +767,7 @@ public async Task ImproveInstructions_SuggestsPromptChanges()
     var testResults = new List<TestEvaluationResult>();
 
     using var scope = ServiceProvider!.CreateScope();
-    var chatClient = scope.ServiceProvider.GetRequiredKeyedService<IChatClient>("smarter-chat");
+    var chatClient = scope.ServiceProvider.GetRequiredService<IChatClient>();
 
     // Run test scenarios and collect results
     testResults.Add(await RunScenarioForImprovement(chatClient, "StartGame", 

@@ -16,15 +16,22 @@ Set up your development environment, clone the workshop repository, and configur
 - An **Azure subscription** with access to Azure AI Foundry
 - **Git** installed and configured
 
-> [+hint] 📚 **Documentation Links:**
->
-> [.NET 10 SDK Download](https://dotnet.microsoft.com/download/dotnet/10.0)
->
-> [Visual Studio 2026](https://visualstudio.microsoft.com/vs/)
->
-> [Docker Desktop](https://www.docker.com/products/docker-desktop/)
->
-> [Azure AI Foundry Overview](https://learn.microsoft.com/en-us/azure/ai-studio/what-is-ai-studio)
+<details><summary>📚 <b>Documentation Links:</b></summary>
+<ul>
+    <li>
+        <a href="https://dotnet.microsoft.com/download/dotnet/10.0">.NET 10 SDK Download</a>
+    </li>
+    <li>
+        <a href="https://visualstudio.microsoft.com/vs/">Visual Studio 2026</a>
+    </li>
+    <li>
+        <a href="https://www.docker.com/products/docker-desktop/">Docker Desktop</a> (or another OCI compliant container platform)
+    </li>
+    <li>
+        <a href="https://learn.microsoft.com/en-us/azure/ai-studio/what-is-ai-studio">Microsoft Foundry Overview</a>
+    </li>
+</ul>
+</details>
 
 ## Clone the Repository
 
@@ -62,14 +69,15 @@ cd agent-unit-testing
 1. [ ] Open the ++AgentEvalsWorkshop.sln++ solution file located in the root of the cloned repository
 1. [ ] Familiarize yourself with the solution structure:
 
-> [!knowledge] Solution Structure
+> [!NOTE]
+> Solution Structure
 > 
 > | Project | Purpose |
 > |---------|---------|
-> | ++AgentEvalsWorkshop++ | Main application containing agent definitions |
-> | ++AgentEvalsWorkshop.AppHost++ | .NET Aspire orchestration host |
-> | ++AgentEvalsWorkshop.ServiceDefaults++ | Shared service configuration |
-> | ++AgentEvalsWorkshop.Tests++ | Integration tests with AI evaluators |
+> | **AgentEvalsWorkshop** | Main application containing agent definitions |
+> | **AgentEvalsWorkshop.AppHost** | .NET Aspire orchestration host |
+> | **AgentEvalsWorkshop.ServiceDefaults** | Shared service configuration |
+> | **AgentEvalsWorkshop.Tests** | Integration tests with AI evaluators |
 
 ## Start the Aspire AppHost
 
@@ -79,7 +87,7 @@ The Aspire AppHost orchestrates the application and its dependencies, including 
 
 1. [ ] In **Solution Explorer**, right-click on ++AgentEvalsWorkshop.AppHost++
 1. [ ] Select **Set as Startup Project**
-1. [ ] Press ++F5++ or click the **Start** button to run
+1. [ ] Press _F5_ or click the _Start_ button to run
 1. [ ] The Aspire Dashboard will open in your default browser
 
 ### Using Terminal / VS Code
@@ -91,9 +99,9 @@ The Aspire AppHost orchestrates the application and its dependencies, including 
 dotnet run --project src/AgentEvalsWorkshop.AppHost
 ```
 
-> [!knowledge] Dashboard URL
-> 
-> The terminal will display a URL for the Aspire Dashboard (typically ++https://localhost:15041++ or similar). Open this URL in your browser.
+<details><summary>💡Dashboard Url</summary>
+The terminal will display a URL for the Aspire Dashboard (typically <a href="https://localhost:15041">https://localhost:15041</a> or similar, along with an auth token in the uri). Open this URL in your browser, use the <b>CTRL+Click</b> shortcut to launch your default browser.
+</details>
 
 ## Configure Azure AI Foundry Credentials
 

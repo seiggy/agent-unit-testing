@@ -55,14 +55,18 @@ namespace AgentEvalsWorkshop.Tests
             
             s_appHost = await appHost.BuildAsync();
 
-            await s_appHost.ResourceNotifications
-                .WaitForResourceAsync("chat", KnownResourceStates.Running, context.CancellationTokenSource.Token);
-            await s_appHost.ResourceNotifications.WaitForResourceHealthyAsync(
+            var agentHost = await s_appHost.ResourceNotifications.WaitForResourceHealthyAsync(
                 "agents", context.CancellationTokenSource.Token)
                 .WaitAsync(DefaultTimeout, context.CancellationTokenSource.Token);
 
+            var deploymentName = agentHost.Snapshot.EnvironmentVariables.FirstOrDefault(kv => kv.Name == "FOUNDRY_DEPLOYMENT_NAME");
             var chatConnectionString = await s_appHost
-                .GetConnectionStringAsync("chat", context.CancellationTokenSource.Token);
+                .GetConnectionStringAsync("az-foundry", context.CancellationTokenSource.Token);
+
+            if (deploymentName?.Value == null)
+            {
+                throw new InvalidOperationException("Run aspire app host first, and ensure the chat deployment is available.");
+            }
 
             if (string.IsNullOrEmpty(chatConnectionString))
             {
@@ -71,17 +75,10 @@ namespace AgentEvalsWorkshop.Tests
 
             var loggerFactory = s_appHost.Services.GetRequiredService<ILoggerFactory>();
 
-            s_chatConfiguration = GetAzureOpenAIChatConfiguration(chatConnectionString, "chat", loggerFactory)
+            s_chatConfiguration = GetAzureOpenAIChatConfiguration(chatConnectionString, deploymentName.Value, loggerFactory)
                 ?? throw new InvalidOperationException("Failed to create ChatConfiguration from connection string.");
 
             services.AddSingleton(s_chatConfiguration.ChatClient);
-            
-            var secondaryRegion = await s_appHost
-                .GetConnectionStringAsync("smarter-chat", context.CancellationTokenSource.Token);
-
-
-            var smarterChat = GetAzureOpenAIChatConfiguration(secondaryRegion, "smarter-chat", loggerFactory);
-            services.AddKeyedSingleton<IChatClient>("smarter-chat", smarterChat.ChatClient);
 
             ServiceProvider =
                 services.BuildServiceProvider();

@@ -13,23 +13,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
-var endpoint = new Uri($"{builder.Configuration["CHAT_URI"]}/openai/v1/");
-
-var secondaryEndpoint = ConnectionStringParser.GetEndpointFromConnectionString(builder.Configuration.GetConnectionString("smarter-chat")!);
-
-builder.Services.AddKeyedChatClient("smarter-chat", new AzureOpenAIClient(
-    secondaryEndpoint,
-    new DefaultAzureCredential(),
-    new AzureOpenAIClientOptions(AzureOpenAIClientOptions.ServiceVersion.V2025_04_01_Preview)
-    {
-        ClientLoggingOptions = new System.ClientModel.Primitives.ClientLoggingOptions
-        {
-            EnableMessageContentLogging = true,
-            EnableLogging = true,
-        }
-    })
-    .GetChatClient("smarter-chat")
-    .AsIChatClient());
+var endpoint = ConnectionStringParser.GetEndpointFromConnectionString(builder.Configuration.GetConnectionString("az-foundry")!);
+var foundryDeploymentName = builder.Configuration["FOUNDRY_DEPLOYMENT_NAME"]!;
 
 builder.Services.AddSingleton(_ => new AzureOpenAIClient(
     endpoint,
@@ -46,21 +31,10 @@ builder.Services.AddSingleton(_ => new AzureOpenAIClient(
 builder.Services.AddSingleton<IChatClient>(sp =>
 {
     return sp.GetRequiredService<AzureOpenAIClient>()
-        .GetChatClient("chat")
+        .GetChatClient(foundryDeploymentName)
         .AsIChatClient();
 });
 
-//builder.AddAzureOpenAIClient(connectionName: "foundry", (settings) =>
-//    {
-//        settings.EnableSensitiveTelemetryData = true;
-//    }, (clientBuilder) =>
-//    {
-//        clientBuilder.ConfigureOptions(options =>
-//        {
-
-//        });
-//    })
-//    .AddChatClient("chat");
 
 var app = builder.Build();
 

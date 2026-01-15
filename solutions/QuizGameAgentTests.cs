@@ -149,7 +149,7 @@ public class QuizGameAgentTests : BaseIntegrationTest
             .CreateScenarioRunAsync($"{ScenarioName}_StartGame", cancellationToken: TestContext!.CancellationTokenSource.Token);
 
         using var scope = ServiceProvider!.CreateScope();
-        var chatClient = scope.ServiceProvider.GetRequiredKeyedService<IChatClient>("smarter-chat");
+        var chatClient = scope.ServiceProvider.GetRequiredService<IChatClient>();
         var agent = QuizGameAgent.BuildQuizGameAgent(chatClient, startingInstructions);
 
         var toolContext = new TaskAdherenceEvaluatorContext(toolDefinitions: QuizGameAgent.GetToolDefinitions());
@@ -202,7 +202,7 @@ public class QuizGameAgentTests : BaseIntegrationTest
             .CreateScenarioRunAsync($"{ScenarioName}_{category}", cancellationToken: TestContext!.CancellationTokenSource.Token);
 
         using var scope = ServiceProvider!.CreateScope();
-        var chatClient = scope.ServiceProvider.GetRequiredKeyedService<IChatClient>("smarter-chat");
+        var chatClient = scope.ServiceProvider.GetRequiredService<IChatClient>();
         var agent = QuizGameAgent.BuildQuizGameAgent(chatClient, startingInstructions);
 
         var toolContext = new TaskAdherenceEvaluatorContext(toolDefinitions: QuizGameAgent.GetToolDefinitions());
@@ -243,7 +243,7 @@ public class QuizGameAgentTests : BaseIntegrationTest
             .CreateScenarioRunAsync($"{ScenarioName}_FirstQuestion", cancellationToken: TestContext!.CancellationTokenSource.Token);
 
         using var scope = ServiceProvider!.CreateScope();
-        var chatClient = scope.ServiceProvider.GetRequiredKeyedService<IChatClient>("smarter-chat");
+        var chatClient = scope.ServiceProvider.GetRequiredService<IChatClient>();
         var agent = QuizGameAgent.BuildQuizGameAgent(chatClient, startingInstructions);
 
         var toolContext = new TaskAdherenceEvaluatorContext(toolDefinitions: QuizGameAgent.GetToolDefinitions());
@@ -284,7 +284,7 @@ public class QuizGameAgentTests : BaseIntegrationTest
             .CreateScenarioRunAsync($"{ScenarioName}_ScoreAnswer", cancellationToken: TestContext!.CancellationTokenSource.Token);
 
         using var scope = ServiceProvider!.CreateScope();
-        var chatClient = scope.ServiceProvider.GetRequiredKeyedService<IChatClient>("smarter-chat");
+        var chatClient = scope.ServiceProvider.GetRequiredService<IChatClient>();
         var agent = QuizGameAgent.BuildQuizGameAgent(chatClient, startingInstructions);
 
         var toolContext = new TaskAdherenceEvaluatorContext(toolDefinitions: QuizGameAgent.GetToolDefinitions());
@@ -346,7 +346,7 @@ public class QuizGameAgentTests : BaseIntegrationTest
             .CreateScenarioRunAsync($"{ScenarioName}_Scoreboard", cancellationToken: TestContext!.CancellationTokenSource.Token);
 
         using var scope = ServiceProvider!.CreateScope();
-        var chatClient = scope.ServiceProvider.GetRequiredKeyedService<IChatClient>("smarter-chat");
+        var chatClient = scope.ServiceProvider.GetRequiredService<IChatClient>();
         var agent = QuizGameAgent.BuildQuizGameAgent(chatClient, startingInstructions);
 
         var toolContext = new TaskAdherenceEvaluatorContext(toolDefinitions: QuizGameAgent.GetToolDefinitions());
@@ -405,7 +405,7 @@ public class QuizGameAgentTests : BaseIntegrationTest
             .CreateScenarioRunAsync($"{ScenarioName}_FullGame", cancellationToken: TestContext!.CancellationTokenSource.Token);
 
         using var scope = ServiceProvider!.CreateScope();
-        var chatClient = scope.ServiceProvider.GetRequiredKeyedService<IChatClient>("smarter-chat");
+        var chatClient = scope.ServiceProvider.GetRequiredService<IChatClient>();
         var agent = QuizGameAgent.BuildQuizGameAgent(chatClient, startingInstructions);
 
         var toolContext = new TaskAdherenceEvaluatorContext(toolDefinitions: QuizGameAgent.GetToolDefinitions());
@@ -481,7 +481,7 @@ public class QuizGameAgentTests : BaseIntegrationTest
         var testResults = new List<TestEvaluationResult>();
 
         using var scope = ServiceProvider!.CreateScope();
-        var chatClient = scope.ServiceProvider.GetRequiredKeyedService<IChatClient>("smarter-chat");
+        var chatClient = scope.ServiceProvider.GetRequiredService<IChatClient>();
 
         // Run multiple test scenarios and collect results
         testResults.Add(await RunScenarioForImprovement(chatClient, "StartGame", "Let's play a trivia game! Start a new game for me."));

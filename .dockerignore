@@ -33,3 +33,7 @@ coverage/
 # Docker artifacts
 Dockerfile*
 .dockerignore
+
+
+# Aspire generated files
+aspire-output/

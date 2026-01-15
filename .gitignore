@@ -223,3 +223,4 @@ infra/seed/seed-data.embedded.json
 .env*
 
 test-report.html
+src/AgentEvalsWorkshop.AppHost/aspire-output/
