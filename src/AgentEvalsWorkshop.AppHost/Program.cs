@@ -20,7 +20,7 @@ var gptDeploymentName = await gpt52Deployment.Resource.GetValueAsync(System.Thre
 
 if (!string.IsNullOrEmpty(gptDeploymentName))
 {
-    var gpt52chat = foundry.AddDeployment(gptDeploymentName, AIFoundryModel.OpenAI.Gpt52Chat)
+    var gpt52chat = foundry.AddDeployment(gptDeploymentName, AIFoundryModel.OpenAI.Gpt41)
         .WithProperties(deployment =>
         {
             deployment.SkuCapacity = 50;

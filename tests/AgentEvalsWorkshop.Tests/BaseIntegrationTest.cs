@@ -60,13 +60,15 @@ namespace AgentEvalsWorkshop.Tests
                 .WaitAsync(DefaultTimeout, context.CancellationTokenSource.Token);
 
             var deploymentName = agentHost.Snapshot.EnvironmentVariables.FirstOrDefault(kv => kv.Name == "FOUNDRY_DEPLOYMENT_NAME");
-            var chatConnectionString = await s_appHost
-                .GetConnectionStringAsync("az-foundry", context.CancellationTokenSource.Token);
+            
 
             if (deploymentName?.Value == null)
             {
                 throw new InvalidOperationException("Run aspire app host first, and ensure the chat deployment is available.");
             }
+
+            var chatConnectionString = await s_appHost
+                .GetConnectionStringAsync(deploymentName.Value, context.CancellationTokenSource.Token);
 
             if (string.IsNullOrEmpty(chatConnectionString))
             {
