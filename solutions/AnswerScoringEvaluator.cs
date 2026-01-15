@@ -13,11 +13,9 @@ public sealed class AnswerScoringEvaluator : IEvaluator
         public string ExpectedAnswer { get; } = expectedAnswer;
     }
 
-    private const string MetricName = "Answer Score";
+    public const string AnswerScoreMetricName = "Answer Score";
 
-    public const string AnswerScoreMetricName = MetricName;
-
-    public IReadOnlyCollection<string> EvaluationMetricNames => [MetricName];
+    public IReadOnlyCollection<string> EvaluationMetricNames => [AnswerScoreMetricName];
 
     public async ValueTask<EvaluationResult> EvaluateAsync(
         IEnumerable<ChatMessage> messages,
@@ -29,7 +27,7 @@ public sealed class AnswerScoringEvaluator : IEvaluator
         ArgumentNullException.ThrowIfNull(modelResponse);
         ArgumentNullException.ThrowIfNull(chatConfiguration);
 
-        var numericMetric = new NumericMetric(MetricName);
+        var numericMetric = new NumericMetric(AnswerScoreMetricName);
         var result = new EvaluationResult(numericMetric);
 
         if (!messages.TryGetUserRequest(out ChatMessage? userRequest, out IReadOnlyList<ChatMessage> conversationHistory))

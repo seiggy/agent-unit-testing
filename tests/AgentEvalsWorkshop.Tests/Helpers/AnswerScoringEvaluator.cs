@@ -7,7 +7,10 @@ namespace Microsoft.Extensions.AI.Evaluation.Quality;
 
 public sealed class AnswerScoringEvaluator : IEvaluator
 {
-    public IReadOnlyCollection<string> EvaluationMetricNames => throw new NotImplementedException();
+    public static string AnswerScoreMetricName = "Answer Score";
+
+
+    public IReadOnlyCollection<string> EvaluationMetricNames => [AnswerScoreMetricName];
 
     public ValueTask<EvaluationResult> EvaluateAsync(IEnumerable<ChatMessage> messages, ChatResponse modelResponse, ChatConfiguration? chatConfiguration = null, IEnumerable<EvaluationContext>? additionalContext = null, CancellationToken cancellationToken = default)
     {
