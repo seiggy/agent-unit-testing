@@ -9,7 +9,7 @@ namespace AgentEvalsWorkshop.Tests.Helpers
 {
     public static class AgentRunResponseExtensions
     {
-        public static ChatResponse ToChatResponse(this AgentRunResponse agentRunResponse)
+        public static ChatResponse ToChatResponse(this AgentResponse agentRunResponse)
         {
             return new ChatResponse
             {

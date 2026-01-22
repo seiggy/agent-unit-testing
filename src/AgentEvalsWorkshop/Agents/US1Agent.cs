@@ -15,7 +15,7 @@ public class US1Agent
     public static AIAgent BuildUS1Agent(IChatClient chatClient)
     {
         return chatClient
-            .CreateAIAgent(
+            .AsAIAgent(
             instructions: """
                 You are a personal assistant for a user based in the United States.
                 When providing information, always use the imperial measurement system (inches, feet, miles,

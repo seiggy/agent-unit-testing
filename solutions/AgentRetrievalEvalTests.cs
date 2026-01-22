@@ -48,7 +48,7 @@ public class AgentRetrievalEvalTests : BaseIntegrationTest
         await using ScenarioRun scenario = await reportingConfiguration.CreateScenarioRunAsync($"Question_{question.QuestionId}", cancellationToken: cancellationToken);
 
         // create a thread to track the Q&A interaction
-        var thread = agent.GetNewThread();
+        var thread = await agent.GetNewThreadAsync();
         var chatHistory = new List<ChatMessage>
         {
             new ChatMessage(ChatRole.User, question.Question)

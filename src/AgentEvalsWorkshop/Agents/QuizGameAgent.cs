@@ -23,7 +23,7 @@ public class QuizGameAgent
     public static AIAgent BuildQuizGameAgent(IChatClient chatClient, string instructions)
     {
         return chatClient
-            .CreateAIAgent(
+            .AsAIAgent(
             instructions: instructions,
                 name: "QuizMaster",
                 tools: GetToolDefinitions()

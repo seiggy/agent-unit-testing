@@ -11,7 +11,7 @@ public class KnowledgebaseChatAgent
     public static AIAgent BuildKnowledgebaseChatAgent(IChatClient chatClient)
     {
         return chatClient
-            .CreateAIAgent(
+            .AsAIAgent(
             instructions: """
                 You are a knowledgebase agent with knowledge about the Xbox Gamepass library.
                 Use the knowledgebase to answer user questions about game completion rate, playtime, rating, and achievement score details.

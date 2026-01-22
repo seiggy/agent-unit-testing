@@ -67,7 +67,7 @@ public class QuizGameAgentTests : BaseIntegrationTest
 
         // Act
         var userMessage = "Let's play a trivia game! Start a new game for me.";
-        var thread = agent.GetNewThread();
+        var thread = await agent.GetNewThreadAsync();
         var chatHistory = new List<ChatMessage> { new ChatMessage(ChatRole.User, userMessage) };
 
         var response = await agent.RunAsync(
@@ -120,7 +120,7 @@ public class QuizGameAgentTests : BaseIntegrationTest
 
         // Act
         var userMessage = $"Start a trivia game with questions about {category}.";
-        var thread = agent.GetNewThread();
+        var thread = await agent.GetNewThreadAsync();
         var chatHistory = new List<ChatMessage> { new ChatMessage(ChatRole.User, userMessage) };
 
         var response = await agent.RunAsync(
@@ -161,7 +161,7 @@ public class QuizGameAgentTests : BaseIntegrationTest
 
         // Act
         var userMessage = "Start a new trivia game!";
-        var thread = agent.GetNewThread();
+        var thread = await agent.GetNewThreadAsync();
         var chatHistory = new List<ChatMessage> { new ChatMessage(ChatRole.User, userMessage) };
 
         var response = await agent.RunAsync(
@@ -199,7 +199,7 @@ public class QuizGameAgentTests : BaseIntegrationTest
         var agent = QuizGameAgent.BuildQuizGameAgent(chatClient, startingInstructions);
 
         var toolContext = new TaskAdherenceEvaluatorContext(toolDefinitions: QuizGameAgent.GetToolDefinitions());
-        var thread = agent.GetNewThread();
+        var thread = await agent.GetNewThreadAsync();
 
         // Start the game first
         var startMessage = "Start a new trivia game!";
@@ -261,7 +261,7 @@ public class QuizGameAgentTests : BaseIntegrationTest
         var agent = QuizGameAgent.BuildQuizGameAgent(chatClient, startingInstructions);
 
         var toolContext = new TaskAdherenceEvaluatorContext(toolDefinitions: QuizGameAgent.GetToolDefinitions());
-        var thread = agent.GetNewThread();
+        var thread = await agent.GetNewThreadAsync();
         var chatHistory = new List<ChatMessage>();
 
         // Start the game
@@ -320,7 +320,7 @@ public class QuizGameAgentTests : BaseIntegrationTest
         var agent = QuizGameAgent.BuildQuizGameAgent(chatClient, startingInstructions);
 
         var toolContext = new TaskAdherenceEvaluatorContext(toolDefinitions: QuizGameAgent.GetToolDefinitions());
-        var thread = agent.GetNewThread();
+        var thread = await agent.GetNewThreadAsync();
         var chatHistory = new List<ChatMessage>();
 
         // Step 1: Start a game with a specific category
