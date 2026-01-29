@@ -1,0 +1,61 @@
+<Project>
+    <PropertyGroup>
+        <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+        <AgentFrameworkVersion>1.0.0-preview.260121.1</AgentFrameworkVersion>
+        <AspireVersion>13.1.0</AspireVersion>
+        <AspNetCoreVersion>10.0.2</AspNetCoreVersion>
+        <MicrosoftExteionsionsVersion>10.2.0</MicrosoftExteionsionsVersion>
+        <OpenTelemetryVersion>1.15.0</OpenTelemetryVersion>
+    </PropertyGroup>
+    <ItemGroup>
+        <!-- ASP.NET Core-->
+        <PackageVersion Include="Microsoft.AspNetCore.OpenApi" Version="$(AspNetCoreVersion)" />
+
+        <!-- Agent Framework -->
+        <PackageVersion Include="Microsoft.Agents.AI" Version="$(AgentFrameworkVersion)" />
+        <PackageVersion Include="Microsoft.Agents.AI.Hosting.A2A" Version="$(AgentFrameworkVersion)" />
+        <PackageVersion Include="Microsoft.Agents.AI.Hosting.A2A.AspNetCore" Version="$(AgentFrameworkVersion)" />
+        <PackageVersion Include="Microsoft.Agents.AI.AzureAI.Persistent" Version="$(AgentFrameworkVersion)" />
+
+        <!-- Microsoft.Extensions -->
+        <PackageVersion Include="Microsoft.Extensions.Http.Resilience" Version="$(MicrosoftExteionsionsVersion)" />
+        <PackageVersion Include="Microsoft.Extensions.ServiceDiscovery" Version="$(MicrosoftExteionsionsVersion)" />
+        <PackageVersion Include="Microsoft.Extensions.AI" Version="$(MicrosoftExteionsionsVersion)" />
+        <PackageVersion Include="Microsoft.Extensions.AI.Evaluation" Version="$(MicrosoftExteionsionsVersion)" />
+        <PackageVersion Include="Microsoft.Extensions.AI.AzureAIInference" Version="10.0.0-preview.1.25559.3" />
+        <PackageVersion Include="Microsoft.Extensions.AI.Abstractions" Version="$(MicrosoftExteionsionsVersion)" />
+        <PackageVersion Include="Microsoft.Extensions.AI.Evaluation.Quality" Version="$(MicrosoftExteionsionsVersion)" />
+        <PackageVersion Include="Microsoft.Extensions.AI.Evaluation.Reporting" Version="$(MicrosoftExteionsionsVersion)" />
+        <PackageVersion Include="Microsoft.Extensions.AI.OpenAI" Version="$(MicrosoftExteionsionsVersion)-preview.1.26063.2" />
+        <PackageVersion Include="Microsoft.Extensions.Configuration" Version="10.0.2" />
+        <PackageVersion Include="Microsoft.Extensions.Configuration.UserSecrets" Version="10.0.2" />
+
+        <!-- Azure -->
+        <PackageVersion Include="Azure.AI.Inference" Version="1.0.0-beta.5" />
+        <PackageVersion Include="Azure.AI.OpenAI" Version="2.8.0-beta.1" />
+        <PackageVersion Include="Azure.Identity" Version="1.17.1" />
+        <PackageVersion Include="Azure.AI.Projects" Version="1.2.0-beta.5" />
+
+        <!-- Scalar -->
+        <PackageVersion Include="Scalar.AspNetCore" Version="2.12.14" />
+
+        <!-- Aspire -->
+        <PackageVersion Include="Aspire.Azure.AI.Inference" Version="$(AspireVersion)-preview.1.25616.3" />
+        <PackageVersion Include="Aspire.Azure.AI.OpenAI" Version="$(AspireVersion)-preview.1.25616.3" />
+        <PackageVersion Include="Aspire.Hosting.AppHost" Version="$(AspireVersion)" />
+        <PackageVersion Include="Aspire.Hosting.Azure.AIFoundry" Version="$(AspireVersion)-preview.1.25616.3" />
+        <PackageVersion Include="Aspire.Hosting.Azure.PostgreSQL" Version="$(AspireVersion)" />
+        <PackageVersion Include="Aspire.Hosting.Testing" Version="$(AspireVersion)" />
+
+        <!-- OpenTelemetry -->
+        <PackageVersion Include="OpenTelemetry.Exporter.OpenTelemetryProtocol" Version="$(OpenTelemetryVersion)" />
+        <PackageVersion Include="OpenTelemetry.Extensions.Hosting" Version="$(OpenTelemetryVersion)" />
+        <PackageVersion Include="OpenTelemetry.Instrumentation.AspNetCore" Version="$(OpenTelemetryVersion)" />
+        <PackageVersion Include="OpenTelemetry.Instrumentation.Http" Version="$(OpenTelemetryVersion)" />
+        <PackageVersion Include="OpenTelemetry.Instrumentation.Runtime" Version="$(OpenTelemetryVersion)" />
+
+        <!-- MS Test -->
+        <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="18.0.1" />
+        <PackageVersion Include="MSTest" Version="4.0.2" />
+    </ItemGroup>
+</Project>
