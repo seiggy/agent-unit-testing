@@ -47,8 +47,8 @@ public class AgentRetrievalEvalTests : BaseIntegrationTest
         // Create a Scenario Run for each question.
         await using ScenarioRun scenario = await reportingConfiguration.CreateScenarioRunAsync($"Question_{question.QuestionId}", cancellationToken: cancellationToken);
 
-        // create a thread to track the Q&A interaction
-        var thread = await agent.GetNewThreadAsync();
+        // create a session to track the Q&A interaction
+        var session = await agent.CreateSessionAsync();
         var chatHistory = new List<ChatMessage>
         {
             new ChatMessage(ChatRole.User, question.Question)
@@ -56,7 +56,7 @@ public class AgentRetrievalEvalTests : BaseIntegrationTest
 
         var response = await agent.RunAsync(
             chatHistory,
-            thread: thread,
+            session: session,
             cancellationToken: cancellationToken
         );
         chatHistory.AddRange(response.Messages);

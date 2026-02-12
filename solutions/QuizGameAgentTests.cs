@@ -156,12 +156,12 @@ public class QuizGameAgentTests : BaseIntegrationTest
 
         // Act
         var userMessage = "Let's play a trivia game! Start a new game for me.";
-        var thread = await agent.GetNewThreadAsync();
+        var session = await agent.CreateSessionAsync();
         var chatHistory = new List<ChatMessage> { new ChatMessage(ChatRole.User, userMessage) };
 
         var response = await agent.RunAsync(
             chatHistory,
-            thread: thread,
+            session: session,
             cancellationToken: TestContext.CancellationTokenSource.Token
         );
 
@@ -209,12 +209,12 @@ public class QuizGameAgentTests : BaseIntegrationTest
 
         // Act
         var userMessage = $"Start a trivia game with questions about {category}.";
-        var thread = await agent.GetNewThreadAsync();
+        var session = await agent.CreateSessionAsync();
         var chatHistory = new List<ChatMessage> { new ChatMessage(ChatRole.User, userMessage) };
 
         var response = await agent.RunAsync(
             chatHistory,
-            thread: thread,
+            session: session,
             cancellationToken: TestContext.CancellationTokenSource.Token
         );
 
@@ -250,12 +250,12 @@ public class QuizGameAgentTests : BaseIntegrationTest
 
         // Act
         var userMessage = "Start a new trivia game!";
-        var thread = await agent.GetNewThreadAsync();
+        var session = await agent.CreateSessionAsync();
         var chatHistory = new List<ChatMessage> { new ChatMessage(ChatRole.User, userMessage) };
 
         var response = await agent.RunAsync(
             chatHistory,
-            thread: thread,
+            session: session,
             cancellationToken: TestContext.CancellationTokenSource.Token
         );
 
@@ -288,7 +288,7 @@ public class QuizGameAgentTests : BaseIntegrationTest
         var agent = QuizGameAgent.BuildQuizGameAgent(chatClient, startingInstructions);
 
         var toolContext = new TaskAdherenceEvaluatorContext(toolDefinitions: QuizGameAgent.GetToolDefinitions());
-        var thread = await agent.GetNewThreadAsync();
+        var session = await agent.CreateSessionAsync();
 
         // Start the game first
         var startMessage = "Start a new trivia game!";
@@ -296,7 +296,7 @@ public class QuizGameAgentTests : BaseIntegrationTest
         
         var startResponse = await agent.RunAsync(
             chatHistory,
-            thread: thread,
+            session: session,
             cancellationToken: TestContext.CancellationTokenSource.Token
         );
         chatHistory.AddRange(startResponse.Messages);
@@ -308,7 +308,7 @@ public class QuizGameAgentTests : BaseIntegrationTest
         
         var answerResponse = await agent.RunAsync(
             chatHistory,
-            thread: thread,
+            session: session,
             cancellationToken: TestContext.CancellationTokenSource.Token
         );
 
@@ -350,12 +350,12 @@ public class QuizGameAgentTests : BaseIntegrationTest
         var agent = QuizGameAgent.BuildQuizGameAgent(chatClient, startingInstructions);
 
         var toolContext = new TaskAdherenceEvaluatorContext(toolDefinitions: QuizGameAgent.GetToolDefinitions());
-        var thread = await agent.GetNewThreadAsync();
+        var session = await agent.CreateSessionAsync();
         var chatHistory = new List<ChatMessage>();
 
         // Start the game
         chatHistory.Add(new ChatMessage(ChatRole.User, "Start a trivia game!"));
-        var response = await agent.RunAsync(chatHistory, thread: thread, cancellationToken: TestContext.CancellationTokenSource.Token);
+        var response = await agent.RunAsync(chatHistory, session: session, cancellationToken: TestContext.CancellationTokenSource.Token);
         chatHistory.AddRange(response.Messages);
 
         // Answer questions (simulate completing the quiz)
@@ -364,13 +364,13 @@ public class QuizGameAgentTests : BaseIntegrationTest
             var question = response.ToChatResponse().Text;
             var answer = await chatClient.GetResponseAsync(new ChatMessage(ChatRole.User, question));
             chatHistory.Add(new ChatMessage(ChatRole.User, answer.Text));
-            response = await agent.RunAsync(chatHistory, thread: thread, cancellationToken: TestContext.CancellationTokenSource.Token);
+            response = await agent.RunAsync(chatHistory, session: session, cancellationToken: TestContext.CancellationTokenSource.Token);
             chatHistory.AddRange(response.Messages);
         }
 
         // Ask for final results
         chatHistory.Add(new ChatMessage(ChatRole.User, "Show me my final score and results!"));
-        var finalResponse = await agent.RunAsync(chatHistory, thread: thread, cancellationToken: TestContext.CancellationTokenSource.Token);
+        var finalResponse = await agent.RunAsync(chatHistory, session: session, cancellationToken: TestContext.CancellationTokenSource.Token);
 
         // Evaluate
         var result = await scenario.EvaluateAsync(
@@ -409,12 +409,12 @@ public class QuizGameAgentTests : BaseIntegrationTest
         var agent = QuizGameAgent.BuildQuizGameAgent(chatClient, startingInstructions);
 
         var toolContext = new TaskAdherenceEvaluatorContext(toolDefinitions: QuizGameAgent.GetToolDefinitions());
-        var thread = await agent.GetNewThreadAsync();
+        var session = await agent.CreateSessionAsync();
         var chatHistory = new List<ChatMessage>();
 
         // Step 1: Start a game with a specific category
         chatHistory.Add(new ChatMessage(ChatRole.User, "Let's play a Science trivia game!"));
-        var startResponse = await agent.RunAsync(chatHistory, thread: thread, cancellationToken: TestContext.CancellationTokenSource.Token);
+        var startResponse = await agent.RunAsync(chatHistory, session: session, cancellationToken: TestContext.CancellationTokenSource.Token);
         chatHistory.AddRange(startResponse.Messages);
 
         var startText = startResponse.ToChatResponse().Text ?? "";
@@ -427,7 +427,7 @@ public class QuizGameAgentTests : BaseIntegrationTest
         // Step 2: Answer the first question
         var userAnswer = new ChatMessage(ChatRole.User, "The answer is: Hydrogen");
         chatHistory.Add(userAnswer);
-        var answerResponse = await agent.RunAsync(chatHistory, thread: thread, cancellationToken: TestContext.CancellationTokenSource.Token);
+        var answerResponse = await agent.RunAsync(chatHistory, session: session, cancellationToken: TestContext.CancellationTokenSource.Token);
 
         // the evaluator only wants the chat history up until the last user message
         //chatHistory.AddRange(answerResponse.Messages.Where(m => m.Role != ChatRole.Tool));
@@ -568,12 +568,12 @@ public class QuizGameAgentTests : BaseIntegrationTest
         var toolContext = new TaskAdherenceEvaluatorContext(toolDefinitions: QuizGameAgent.GetToolDefinitions());
         var rulesContext = new QuizGameRulesEvaluator.Context(startingInstructions);
 
-        var thread = await agent.GetNewThreadAsync();
+        var session = await agent.CreateSessionAsync();
         var chatHistory = new List<ChatMessage> { new ChatMessage(ChatRole.User, userMessage) };
 
         var response = await agent.RunAsync(
             chatHistory,
-            thread: thread,
+            session: session,
             cancellationToken: TestContext.CancellationTokenSource.Token
         );
 
