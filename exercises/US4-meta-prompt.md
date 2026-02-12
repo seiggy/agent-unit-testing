@@ -75,7 +75,7 @@ The agent must follow these rules (defined in `QuizGameRulesEvaluator`):
 ```csharp
 public static AIAgent BuildQuizGameAgent(IChatClient chatClient, string instructions)
 {
-    return chatClient.CreateAIAgent(
+    return chatClient.AsAIAgent(
         instructions: instructions,
         name: "QuizMaster",
         tools: GetToolDefinitions()
@@ -690,12 +690,12 @@ private async Task<TestEvaluationResult> RunScenarioForImprovement(
 
 ```csharp
     // Run the agent with the user message
-    var thread = agent.GetNewThread();
+    var session = await agent.CreateSessionAsync();
     var chatHistory = new List<ChatMessage> { new ChatMessage(ChatRole.User, userMessage) };
 
     var response = await agent.RunAsync(
         chatHistory,
-        thread: thread,
+        session: session,
         cancellationToken: TestContext.CancellationTokenSource.Token
     );
 
@@ -838,12 +838,12 @@ private async Task<TestEvaluationResult> RunScenarioForImprovement(
     var toolContext = new TaskAdherenceEvaluatorContext(toolDefinitions: QuizGameAgent.GetToolDefinitions());
     var rulesContext = new QuizGameRulesEvaluator.Context(startingInstructions);
 
-    var thread = agent.GetNewThread();
+    var session = await agent.CreateSessionAsync();
     var chatHistory = new List<ChatMessage> { new ChatMessage(ChatRole.User, userMessage) };
 
     var response = await agent.RunAsync(
         chatHistory,
-        thread: thread,
+        session: session,
         cancellationToken: TestContext.CancellationTokenSource.Token
     );
 

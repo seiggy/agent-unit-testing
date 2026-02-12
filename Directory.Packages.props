@@ -1,7 +1,7 @@
 <Project>
     <PropertyGroup>
         <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
-        <AgentFrameworkVersion>1.0.0-preview.260121.1</AgentFrameworkVersion>
+        <AgentFrameworkVersion>1.0.0-preview.260209.1</AgentFrameworkVersion>
         <AspireVersion>13.1.0</AspireVersion>
         <AspNetCoreVersion>10.0.2</AspNetCoreVersion>
         <MicrosoftExteionsionsVersion>10.2.0</MicrosoftExteionsionsVersion>
