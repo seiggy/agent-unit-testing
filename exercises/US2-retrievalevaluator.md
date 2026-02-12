@@ -219,7 +219,7 @@ private static async Task EvaluateQuestion(
     // Create a Scenario Run for each question.
     await using ScenarioRun scenario = await reportingConfiguration.CreateScenarioRunAsync($"Question_{question.QuestionId}", cancellationToken: cancellationToken);
 
-    // create a session to track the Q&A interaction
+    // Create a session for the agent using CreateSessionAsync to track the Q&A interaction
     var session = await agent.CreateSessionAsync();
     var chatHistory = new List<ChatMessage>
     {
