@@ -22,7 +22,7 @@ flowchart TB
         direction LR
         Agent["Agent Service<br/>(ASP.NET Core)"]
         Postgres[("Azure Postgres<br/>(pgvector)")]
-        Foundry["Azure AI Foundry<br/>(GPT-4o)"]
+        Foundry["Azure AI Foundry<br/>(GPT-5)"]
         
         Agent <--> Postgres
         Agent <--> Foundry
