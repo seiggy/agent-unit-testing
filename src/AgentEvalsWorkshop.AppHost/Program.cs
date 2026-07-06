@@ -22,7 +22,7 @@ try
 
     if (!string.IsNullOrEmpty(gptDeploymentName))
     {
-        var gpt52chat = foundry.AddDeployment(gptDeploymentName, AIFoundryModel.OpenAI.Gpt41)
+        var gpt54chat = foundry.AddDeployment(gptDeploymentName, AIFoundryModel.OpenAI.Gpt54)
             .WithProperties(deployment =>
             {
                 deployment.SkuCapacity = 50;
@@ -33,7 +33,7 @@ try
         var agent = builder.AddProject<Projects.AgentEvalsWorkshop>("agents")
             .WithReference(foundry)
             .WithEnvironment("FOUNDRY_DEPLOYMENT_NAME", gptDeploymentName)
-            .WithReference(gpt52chat);
+            .WithReference(gpt54chat);
     }
 
 }
