@@ -6,6 +6,7 @@
   </Configurations>
   <Folder Name="/src/">
     <Project Path="src/AgentEvalsWorkshop.AppHost/AgentEvalsWorkshop.AppHost.csproj" />
+    <Project Path="src/AgentEvalsWorkshop.Python.AppHost/AgentEvalsWorkshop.Python.AppHost.csproj" />
     <Project Path="src/AgentEvalsWorkshop.ServiceDefaults/AgentEvalsWorkshop.ServiceDefaults.csproj" />
     <Project Path="src/AgentEvalsWorkshop/AgentEvalsWorkshop.csproj" />
   </Folder>

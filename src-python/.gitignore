@@ -1,0 +1,14 @@
+# Virtual environment
+.venv/
+
+# Local secrets / config (never commit)
+.env
+
+# Python caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+
+# Eval output
+.eval-out/

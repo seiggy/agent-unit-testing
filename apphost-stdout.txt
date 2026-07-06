@@ -1,0 +1,732 @@
+dbug: Aspire.Hosting.DeveloperCertificateService[0]
+      Developer certificate HTTPS/TLS termination support: True
+dbug: Aspire.Hosting.FileSystemService[0]
+      Allocated temporary file: C:\Users\zackway\AppData\Local\Temp\aspirez4py0t2g.x0z\runtimeconfig.json
+dbug: Aspire.Hosting.DistributedApplication[0]
+      Dashboard endpoint 'http' generated dynamically: http://localhost:<random> (no configured URL).
+dbug: Aspire.Hosting.DistributedApplication[0]
+      Dashboard endpoint 'otlp-http' generated dynamically: http://localhost:<random> (no configured URL).
+dbug: Aspire.Hosting.DistributedApplication[0]
+      Dashboard endpoint 'otlp-grpc' generated dynamically: http://localhost:<random> (no configured URL).
+dbug: Aspire.Hosting.ApplicationModel.ResourceNotificationService[0]
+      Resource az-foundry/az-foundry changed state: Starting
+dbug: Aspire.Hosting.ApplicationModel.ResourceNotificationService[0]
+      Resource az-foundry-roles/az-foundry-roles changed state: Starting
+dbug: Microsoft.Extensions.Hosting.Internal.Host[1]
+      Hosting starting
+info: Aspire.Hosting.DistributedApplication[0]
+      Aspire AppHost version: 13.4.6+87fe259e4fc244c599019a7b1304c85a1488f248
+info: Aspire.Hosting.DistributedApplication[0]
+      Distributed application starting.
+info: Aspire.Hosting.DistributedApplication[0]
+      Application host directory is: D:\github\seiggy\agent-unit-testing\src\AgentEvalsWorkshop.Python.AppHost
+dbug: Microsoft.Extensions.Hosting.Internal.Host[1]
+      Hosting starting
+dbug: Aspire.Hosting.Cli.CliOrphanDetector[0]
+      No CLI process ID configured. Orphan detection disabled.
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      Running dotnet CLI to check for latest version of Aspire.Hosting.AppHost with arguments: package search Aspire.Hosting.AppHost --format json --prerelease --take 1000
+dbug: Aspire.Hosting.Cli.BackchannelService[0]
+      Backchannel socket path was not specified.
+dbug: Aspire.Hosting.Backchannel.AuxiliaryBackchannelService[0]
+      Starting auxiliary backchannel service on socket path: C:\Users\zackway\.aspire\cli\bch\kKHAQMc8aWYt7mtTu3h.58308
+dbug: Aspire.Hosting.Backchannel.AuxiliaryBackchannelService[0]
+      Creating and binding server socket...
+dbug: Aspire.Hosting.Backchannel.AuxiliaryBackchannelService[0]
+      Auxiliary backchannel listening on C:\Users\zackway\.aspire\cli\bch\kKHAQMc8aWYt7mtTu3h.58308
+dbug: Microsoft.Extensions.Hosting.Internal.Host[2]
+      Hosting started
+dbug: Aspire.Hosting.FileSystemService[0]
+      Allocated temporary directory: C:\Users\zackway\AppData\Local\Temp\aspire-dcphlemdz0f.des
+dbug: Aspire.Hosting.ApplicationModel.ResourceNotificationService[0]
+      Resource resource-group/resource-group changed state: Waiting -> ValueMissing
+dbug: Aspire.Hosting.ApplicationModel.ResourceNotificationService[0]
+      Resource az-foundry-name/az-foundry-name changed state: Waiting -> ValueMissing
+dbug: Aspire.Hosting.ApplicationModel.ResourceNotificationService[0]
+      Resource gpt-deployment-name/gpt-deployment-name changed state: Waiting -> ValueMissing
+dbug: Aspire.Hosting.ApplicationModel.ResourceNotificationService[0]
+      Resource foundry-project-endpoint/foundry-project-endpoint changed state: Waiting -> ValueMissing
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout): {
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):   "version": 2,
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):   "problems": [],
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):   "searchResult": [
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):     {
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):       "sourceName": "https://api.nuget.org/v3/index.json",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):       "packages": [
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         {
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "id": "Aspire.Hosting.AppHost",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "latestVersion": "13.4.6",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "totalDownloads": 20884221,
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "owners": "aspire, Microsoft"
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         },
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         {
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "id": "CommunityToolkit.Aspire.Hosting.SqlDatabaseProjects",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "latestVersion": "13.4.1-beta.675",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "totalDownloads": 251174,
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "owners": "aspire, dotnetfoundation, Microsoft.Toolkit"
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         },
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         {
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "id": "AzureKeyVaultEmulator.Aspire.Hosting",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "latestVersion": "3.1.0",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "totalDownloads": 183951,
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "owners": "james-gould"
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         },
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         {
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "id": "CommunityToolkit.Aspire.Hosting.PowerShell",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "latestVersion": "13.4.1-beta.675",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "totalDownloads": 53023,
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "owners": "aspire, dotnetfoundation, Microsoft.Toolkit"
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         },
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         {
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "id": "CommunityToolkit.Aspire.Hosting.Azure.Dapr.Redis",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "latestVersion": "13.4.1-beta.675",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "totalDownloads": 48537,
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "owners": "aspire, dotnetfoundation, Microsoft.Toolkit"
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         },
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         {
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "id": "Aspirant.Hosting",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "latestVersion": "0.0.4",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "totalDownloads": 22079,
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "owners": "aspirant, damianedwards"
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         },
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         {
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "id": "Aspirant.Hosting.Yarp",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "latestVersion": "0.0.4",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "totalDownloads": 14388,
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "owners": "aspirant, damianedwards"
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         },
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         {
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "id": "FSharp.Aspire.Hosting.AppHost",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "latestVersion": "9.0.0",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "totalDownloads": 708,
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "owners": "Tarmil"
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         },
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         {
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "id": "KubeOps.Aspire.Hosting",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "latestVersion": "11.6.0-prerelease.1",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "totalDownloads": 1566,
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "owners": "cbuehler"
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         },
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         {
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "id": "Shiny.DocumentDb.Aspire.Hosting",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "latestVersion": "10.0.2",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "totalDownloads": 1144,
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "owners": "aritchie"
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         },
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         {
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "id": "Aspirant.Hosting.Testing",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "latestVersion": "0.0.4",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "totalDownloads": 5822,
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "owners": "aspirant, damianedwards"
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         },
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         {
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "id": "Structurizr.Aspire.Hosting",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "latestVersion": "0.1.5.7",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "totalDownloads": 1978,
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "owners": "baynezy"
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         },
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         {
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "id": "Aspirant.Hosting.Testing.xunit",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "latestVersion": "0.0.4",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "totalDownloads": 5514,
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "owners": "aspirant, damianedwards"
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         },
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         {
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "id": "McDoit.Aspire.Hosting.Ministack.Sample.Cdk.AppHost",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "latestVersion": "0.1.1",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "totalDownloads": 775,
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "owners": "McDoCode"
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         },
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         {
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "id": "Nivot.Aspire.Hosting.ProjectCommander",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "latestVersion": "2.0.0",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "totalDownloads": 950,
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "owners": "oisin"
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         },
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         {
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "id": "McDoit.Aspire.Hosting.Ministack.Sample.CloudFormation.AppHost",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "latestVersion": "0.1.1",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "totalDownloads": 788,
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "owners": "McDoCode"
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         },
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         {
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "id": "Snappyup.Aspire.Hosting.Dragonfly",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "latestVersion": "1.0.3",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "totalDownloads": 691,
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "owners": "victorious"
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         },
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         {
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "id": "MailPeek.Hosting.Aspire",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "latestVersion": "0.5.2",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "totalDownloads": 886,
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "owners": "MarcelRoozekrans"
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         },
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         {
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "id": "LevelUp.Hosting",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "latestVersion": "0.4.0-preview.1",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "totalDownloads": 1301,
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "owners": "lvlup"
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         },
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         {
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "id": "Aspire.Hosting.DocumentDB",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "latestVersion": "0.112.0",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "totalDownloads": 684,
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "owners": "DocumentDB-packagers"
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         },
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         {
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "id": "Aaron.Akka.Aspire.Hosting",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "latestVersion": "0.2.0",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "totalDownloads": 549,
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "owners": "aaronontheweb"
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         },
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         {
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "id": "FSharp.Aspire.ProjectTemplates",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "latestVersion": "9.1.0",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "totalDownloads": 1905,
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "owners": "Tarmil"
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         },
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         {
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "id": "Nivot.Aspire.ProjectCommander",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "latestVersion": "2.0.0",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "totalDownloads": 939,
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "owners": "oisin"
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         },
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         {
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "id": "AspireQuartz.Hosting",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "latestVersion": "1.0.1",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "totalDownloads": 221,
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "owners": "alnuaimicoder"
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         },
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         {
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "id": "Tap.Aspire.Hosting",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "latestVersion": "0.4.1",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "totalDownloads": 728,
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "owners": "philbir"
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         },
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         {
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "id": "BellaBaxter.Aspire.Host",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "latestVersion": "0.1.1-preview.95",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "totalDownloads": 4229,
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "owners": "jjchiw"
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         },
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         {
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "id": "FSharp.Aspire.Hosting.Aws",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "latestVersion": "9.0.0",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "totalDownloads": 357,
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "owners": "Tarmil"
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         },
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         {
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "id": "PommaLabs.Aspire.Hosting.Thumbnailer",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "latestVersion": "9.3.1",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "totalDownloads": 361,
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "owners": "doktorp"
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         },
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         {
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "id": "PommaLabs.Aspire.Hosting.MinIO",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "latestVersion": "9.3.1",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "totalDownloads": 548,
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "owners": "doktorp"
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         },
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         {
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "id": "PommaLabs.Aspire.Hosting.MailDev",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "latestVersion": "9.3.1",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "totalDownloads": 476,
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "owners": "doktorp"
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         },
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         {
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "id": "LevelUp.Hosting.Strategos",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "latestVersion": "0.4.0-preview.1",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "totalDownloads": 785,
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "owners": "lvlup"
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         },
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         {
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "id": "FSharp.Aspire.Hosting.Orleans",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "latestVersion": "9.0.0",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "totalDownloads": 241,
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "owners": "Tarmil"
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         },
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         {
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "id": "Nivot.Aspire.Hosting.PowerShell",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "latestVersion": "1.0.0",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "totalDownloads": 272,
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "owners": "oisin"
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         },
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         {
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "id": "Aspirant.Hosting.Redis",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "latestVersion": "0.0.4",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "totalDownloads": 1076,
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "owners": "aspirant"
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         },
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         {
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "id": "Ngandu.Aspire.Hosting.EFCore.Migrations",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "latestVersion": "0.0.1-beta",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "totalDownloads": 186,
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "owners": "ngandugilbert"
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         },
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         {
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "id": "Keycloak.Net.Sdk.Aspire.Hosting",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "latestVersion": "1.0.0",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "totalDownloads": 98,
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "owners": "MiladRv"
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         },
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         {
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "id": "ATProtoNet.Aspire.Hosting",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "latestVersion": "0.4.0",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "totalDownloads": 102,
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "owners": "Grandiras"
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         },
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         {
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "id": "Waha.Aspire.Hosting",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "latestVersion": "1.0.2",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "totalDownloads": 554,
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "owners": "Waha-net"
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         },
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         {
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "id": "AditiKraft.Aspire.Hosting.SecretSync",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "latestVersion": "0.0.18",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "totalDownloads": 869,
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "owners": "AditiKraft"
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         },
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         {
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "id": "JoshMakeStuff.Aspire.Hosting.OpenLdap",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "latestVersion": "0.2.0-preview.1",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "totalDownloads": 104,
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "owners": "joshmakestuff"
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         },
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         {
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "id": "AditiKraft.Aspire.Hosting.HttpsGateway",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "latestVersion": "0.0.12",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "totalDownloads": 531,
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "owners": "AditiKraft"
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         },
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         {
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "id": "XrmEmulator.Aspire.Hosting.Dataverse",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "latestVersion": "1.6.0",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "totalDownloads": 146,
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "owners": "Delegateas"
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         },
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         {
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "id": "FSharp.CommunityToolkit.Aspire.Hosting.Azure.StaticWebApps",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "latestVersion": "9.0.0",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "totalDownloads": 249,
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "owners": "Tarmil"
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         },
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         {
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "id": "McDoit.Aspire.Hosting.Ministack.Sample.AppHost",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "latestVersion": "0.0.2",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "totalDownloads": 115,
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "owners": "McDoCode"
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         },
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         {
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "id": "Hexalith.Memories.Aspire",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "latestVersion": "1.44.0",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "totalDownloads": 828,
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "owners": "Hexalith"
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         },
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         {
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "id": "OakIdeas.Aspire.DataExplorer.Hosting",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "latestVersion": "1.0.0-preview.1",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "totalDownloads": 74,
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "owners": "OakIdeas"
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         },
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         {
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "id": "OpStream.Hosting.Aspire",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "latestVersion": "1.0.0",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "totalDownloads": 98,
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "owners": "OpStream"
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         },
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         {
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "id": "Cratis.AuthProxy.Aspire",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "latestVersion": "2.4.0",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "totalDownloads": 126,
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "owners": "Cratis"
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         },
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         {
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "id": "Wicksipedia.Aspire.Hosting.Azure.SqlRoles",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "latestVersion": "13.4.6.2",
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "totalDownloads": 0,
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):           "owners": "wicksipedia"
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):         }
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):       ]
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):     }
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout):   ]
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      dotnet (stdout): }
+dbug: Aspire.Hosting.VersionChecking.PackageFetcher[0]
+      Found 1 packages.
+dbug: Aspire.Hosting.VersionChecking.VersionCheckService[0]
+      Current version: 13.4.6
+      Newest stable version: 13.4.6
+      Newest prerelease version: (null)
+dbug: Aspire.Hosting.VersionChecking.VersionCheckService[0]
+      No newer version for the current version 13.4.6.
+dbug: Aspire.Hosting.VersionChecking.VersionCheckService[0]
+      App host version is up to date or the latest version is unknown.
+dbug: Aspire.Hosting.Backchannel.AuxiliaryBackchannelService[0]
+      Client connected to auxiliary backchannel.
+dbug: Aspire.Hosting.ApplicationModel.ResourceNotificationService[0]
+      Resource py-agent/py-agent-rkpkrkyc changed state: Starting
+dbug: Aspire.Hosting.ApplicationModel.ResourceNotificationService[0]
+      Resource py-agent-installer/py-agent-installer-snknvhwm changed state: Starting
+dbug: Aspire.Hosting.ApplicationModel.ResourceNotificationService[0]
+      Resource aspire-dashboard/aspire-dashboard-avsjbyht changed state: Starting
+info: Aspire.Hosting.DistributedApplication[0]
+      Generating a dynamic url for dashboard.  If you want a consistent url, configure `ASPNETCORE_URLS`
+dbug: Aspire.Hosting.ApplicationModel.ResourceNotificationService[0]
+      Resource py-agent/py-agent-rkpkrkyc changed state: Starting -> Waiting
+dbug: Aspire.Hosting.ApplicationModel.ResourceNotificationService[0]
+      Waiting for resource 'py-agent' to match predicate.
+dbug: Aspire.Hosting.ApplicationModel.RequiredCommandValidator[0]
+      Required command 'uv' for resource 'py-agent-installer' resolved to 'C:\Users\zackway\.local\bin\uv.EXE'.
+dbug: Aspire.Hosting.ApplicationModel.ResourceNotificationService[0]
+      Resource py-agent-installer/py-agent-installer-snknvhwm changed state: Running
+dbug: Aspire.Hosting.Health.ResourceHealthCheckService[0]
+      Starting health monitoring for resource 'py-agent-installer'.
+dbug: Aspire.Hosting.ApplicationModel.ResourceNotificationService[0]
+      Resource aspire-dashboard/aspire-dashboard-avsjbyht changed state: Running
+dbug: Aspire.Hosting.Health.ResourceHealthCheckService[0]
+      Starting health monitoring for resource 'aspire-dashboard'.
+dbug: Aspire.Hosting.Health.ResourceHealthCheckService[0]
+      Resource 'aspire-dashboard' has no health checks to monitor.
+dbug: Aspire.Hosting.Health.ResourceHealthCheckService[0]
+      Resource 'py-agent-installer' has no health checks to monitor.
+dbug: Aspire.Hosting.Health.ResourceHealthCheckService[0]
+      Resource 'py-agent-installer' is ready.
+dbug: Aspire.Hosting.Health.ResourceHealthCheckService[0]
+      Resource 'aspire-dashboard' is ready.
+dbug: Aspire.Hosting.Health.ResourceHealthCheckService[0]
+      Publishing ResourceReadyEvent for 'py-agent-installer'.
+dbug: Aspire.Hosting.Health.ResourceHealthCheckService[0]
+      Publishing ResourceReadyEvent for 'aspire-dashboard'.
+dbug: Aspire.Hosting.Health.ResourceHealthCheckService[0]
+      Waiting for ResourceReadyEvent for 'py-agent-installer'.
+dbug: Aspire.Hosting.Health.ResourceHealthCheckService[0]
+      ResourceReadyEvent for 'py-agent-installer' completed.
+dbug: Aspire.Hosting.Health.ResourceHealthCheckService[0]
+      Publishing the result of ResourceReadyEvent for 'py-agent-installer'.
+info: Aspire.Hosting.DistributedApplication[0]
+      Now listening on: http://localhost:57739
+info: Aspire.Hosting.DistributedApplication[0]
+      Login to the dashboard at http://localhost:57739/login?t=725f9afe6fd933c8d75f7f339fac16f1
+info: Aspire.Hosting.DistributedApplication[0]
+      Aspire Dashboard
+
+      - Dashboard:  http://localhost:57739
+      - Login URL:  http://localhost:57739/login?t=725f9afe6fd933c8d75f7f339fac16f1
+      - OTLP/gRPC:  http://localhost:57738
+      - OTLP/HTTP:  http://localhost:57737
+
+dbug: Aspire.Hosting.Health.ResourceHealthCheckService[0]
+      Waiting for ResourceReadyEvent for 'aspire-dashboard'.
+dbug: Aspire.Hosting.Health.ResourceHealthCheckService[0]
+      ResourceReadyEvent for 'aspire-dashboard' completed.
+dbug: Aspire.Hosting.Health.ResourceHealthCheckService[0]
+      Publishing the result of ResourceReadyEvent for 'aspire-dashboard'.
+dbug: Aspire.Hosting.ApplicationModel.ResourceNotificationService[0]
+      Resource py-agent-installer/py-agent-installer-snknvhwm changed state: Running -> Finished
+dbug: Aspire.Hosting.Health.ResourceHealthCheckService[0]
+      Stopping health monitoring for resource 'py-agent-installer'.

@@ -10,11 +10,26 @@ Set up your development environment, clone the workshop repository, and configur
 - Verify the Aspire AppHost starts successfully
 
 ## Prerequisites
-- **Visual Studio 2026 18.0+** or **Visual Studio Code** with the C# Dev Kit extension
-- **.NET 10 SDK** installed
-- **Docker Desktop** running (required for Aspire)
+
+> [!NOTE]
+> This workshop ships two parallel tracks — a **🟦 .NET** track and a **🐍 Python** track. Each exercise
+> presents both side-by-side. Pick one track and follow the matching **🟦 .NET** / **🐍 Python** blocks
+> top-to-bottom. The Python track is orchestrated by a small C# Aspire AppHost, so the **.NET 10 SDK is
+> required for both tracks**.
+
+**Shared (both tracks):**
+- **.NET 10 SDK** installed (runs the Aspire AppHost in both tracks)
 - An **Azure subscription** with access to Azure AI Foundry
+- **Azure CLI** installed (`az login`)
 - **Git** installed and configured
+
+**🟦 .NET track:**
+- **Visual Studio 2026 18.0+** or **Visual Studio Code** with the C# Dev Kit extension
+
+**🐍 Python track:**
+- **[uv](https://docs.astral.sh/uv/)** — Python package/environment manager
+- **Python 3.12** (uv installs it automatically if missing)
+- **Visual Studio Code** (to open the `src-python/` folder)
 
 <details><summary>📚 <b>Documentation Links:</b></summary>
 <ul>
@@ -25,7 +40,10 @@ Set up your development environment, clone the workshop repository, and configur
         <a href="https://visualstudio.microsoft.com/vs/">Visual Studio 2026</a>
     </li>
     <li>
-        <a href="https://www.docker.com/products/docker-desktop/">Docker Desktop</a> (or another OCI compliant container platform)
+        <a href="https://docs.astral.sh/uv/">uv (Python package manager)</a>
+    </li>
+    <li>
+        <a href="https://learn.microsoft.com/en-us/cli/azure/install-azure-cli">Azure CLI Install</a>
     </li>
     <li>
         <a href="https://learn.microsoft.com/en-us/azure/ai-studio/what-is-ai-studio">Microsoft Foundry Overview</a>
@@ -66,6 +84,8 @@ cd agent-unit-testing
 
 ## Open the Solution
 
+**🟦 .NET**
+
 1. [ ] Open the ++AgentEvalsWorkshop.sln++ solution file located in the root of the cloned repository
 1. [ ] Familiarize yourself with the solution structure:
 
@@ -79,9 +99,38 @@ cd agent-unit-testing
 > | **AgentEvalsWorkshop.ServiceDefaults** | Shared service configuration |
 > | **AgentEvalsWorkshop.Tests** | Integration tests with AI evaluators |
 
+**🐍 Python**
+
+1. [ ] Open the Python track folder in VS Code:
+
+```bash
+code src-python
+```
+
+1. [ ] Restore the Python environment and dependencies with **uv** (creates a `.venv` and installs the dev group):
+
+```bash
+cd src-python
+uv sync
+```
+
+1. [ ] Familiarize yourself with the Python track structure:
+
+> [!NOTE]
+> Python Track Structure
+> 
+> | Path | Purpose |
+> |------|---------|
+> | **src-python/** | uv-managed Python agent app (`agent_evals_workshop`) |
+> | **src/AgentEvalsWorkshop.Python.AppHost** | C# Aspire host that launches the Python app (`py-agent`) |
+> | **tests-python/** | pytest scaffolding you complete during the exercises |
+> | **solutions-python/** | Reference solutions for each exercise |
+
 ## Start the Aspire AppHost
 
 The Aspire AppHost orchestrates the application and its dependencies, including the Azure AI Foundry connection.
+
+**🟦 .NET**
 
 ### Using Visual Studio 2026
 
@@ -99,13 +148,30 @@ The Aspire AppHost orchestrates the application and its dependencies, including 
 dotnet run --project src/AgentEvalsWorkshop.AppHost
 ```
 
+1. [ ] In the Aspire Dashboard, verify the ++chat++ and ++agents++ resources start successfully
+
+**🐍 Python**
+
+The Python track uses its own dedicated C# Aspire host that launches the uv-managed Python agent service.
+
+1. [ ] Open a terminal in the repository root
+1. [ ] Run the following command:
+
+```bash
+dotnet run --project src/AgentEvalsWorkshop.Python.AppHost
+```
+
+1. [ ] In the Aspire Dashboard, verify the ++py-agent++ resource transitions to **Healthy**
+
 <details><summary>💡Dashboard Url</summary>
 The terminal will display a URL for the Aspire Dashboard (typically <a href="https://localhost:15041">https://localhost:15041</a> or similar, along with an auth token in the uri). Open this URL in your browser, use the <b>CTRL+Click</b> shortcut to launch your default browser.
 </details>
 
 ## Configure Azure AI Foundry Credentials
 
-When the Aspire Dashboard opens, you'll need to provide your Azure subscription credentials to connect to Azure AI Foundry.
+When the Aspire Dashboard opens, you'll need to provide your Azure credentials so the app can connect to Azure AI Foundry.
+
+**🟦 .NET**
 
 ### Locate Your Azure Subscription ID
 
@@ -146,6 +212,39 @@ dotnet user-secrets set "Azure:AIFoundry:Endpoint" "<your-foundry-endpoint>"
 1. [ ] In the Aspire Dashboard, verify the ++chat++ resource transitions to a **Running** (green) state
 1. [ ] Verify the ++agents++ resource shows as **Healthy**
 
+**🐍 Python**
+
+The Python track authenticates with **`DefaultAzureCredential`** (no API keys) and reads its endpoints
+from a local, git-ignored `.env` file (or the Aspire-injected environment when running under the AppHost).
+
+1. [ ] Sign in with the Azure CLI so `DefaultAzureCredential` can acquire tokens:
+
+```bash
+az login
+```
+
+1. [ ] Copy the environment template in `src-python/` and edit the resulting `.env` (it is git-ignored — never commit it):
+
+```bash
+cd src-python
+Copy-Item .env.example .env
+```
+
+1. [ ] Fill in the following values in `.env`:
+
+> [!NOTE]
+> Python Environment Contract
+> 
+> | Variable | Meaning |
+> |----------|---------|
+> | `AZURE_OPENAI_ENDPOINT` | Foundry / Azure OpenAI endpoint hosting the `chat` deployment |
+> | `CHAT_DEPLOYMENT_NAME` | Model deployment name (lab provisions this as `chat`) |
+> | `AZURE_OPENAI_API_VERSION` | Azure OpenAI REST API version |
+> | `AZURE_AI_PROJECT_ENDPOINT` | Foundry **project** endpoint (used by `evaluate()` upload in US1) |
+
+1. [ ] The ++py-agent++ resource in the Aspire Dashboard should already show as **Healthy** — the AppHost
+   injects these same values automatically when it launches the Python service.
+
 > [+hint] 📚 **Documentation Links:**
 >
 > [.NET Aspire Dashboard](https://learn.microsoft.com/en-us/dotnet/aspire/fundamentals/dashboard/overview)
@@ -158,6 +257,8 @@ dotnet user-secrets set "Azure:AIFoundry:Endpoint" "<your-foundry-endpoint>"
 
 Run a quick smoke test to ensure everything is configured correctly.
 
+**🟦 .NET**
+
 1. [ ] Open a new terminal in the repository root
 1. [ ] Run the configuration smoke test:
 
@@ -167,12 +268,23 @@ dotnet test tests/AgentEvalsWorkshop.Tests --filter "FullyQualifiedName~Configur
 
 1. [ ] Verify the test passes
 
+**🐍 Python**
+
+1. [ ] Open a new terminal in `src-python/` (where the uv environment lives)
+1. [ ] Run the configuration smoke test:
+
+```bash
+uv run pytest ../tests-python -k configuration_smoke
+```
+
+1. [ ] Verify the test passes (it is `foundry`-marked and will **skip** if `AZURE_OPENAI_ENDPOINT` is unset — configure `.env` and `az login` first)
+
 > [!knowledge] Success Indicators
 > 
 > A passing test confirms:
 > - ✅ Aspire AppHost starts successfully
 > - ✅ Azure AI Foundry connection is established
-> - ✅ Chat client can be resolved from the service provider
+> - ✅ The chat client can be constructed (🟦 .NET: resolved from the service provider · 🐍 Python: built from `.env` config)
 
 ## Troubleshooting
 
@@ -180,8 +292,10 @@ dotnet test tests/AgentEvalsWorkshop.Tests --filter "FullyQualifiedName~Configur
 > 
 > | Symptom | Possible Cause | Resolution |
 > |---------|----------------|------------|
-> | AppHost fails to start | Docker not running | Start Docker Desktop and wait for it to be fully running |
-> | ++chat++ resource stays in "Starting" | Missing or invalid Azure credentials | Verify Subscription ID and Foundry endpoint in user secrets or dashboard |
+> | ++chat++ resource stays in "Starting" (🟦 .NET) | Missing or invalid Azure credentials | Verify Subscription ID and Foundry endpoint in user secrets or dashboard |
+> | ++py-agent++ not **Healthy** (🐍 Python) | uv environment not restored | Run `uv sync` in `src-python/` and restart the AppHost |
+> | Python smoke test **skipped** | `AZURE_OPENAI_ENDPOINT` unset | Copy `.env.example` → `.env` in `src-python/`, fill the values, and run `az login` |
+> | Auth / token errors (🐍 Python) | Not signed in to Azure CLI | Run `az login`; `DefaultAzureCredential` needs an active CLI session |
 > | Connection timeout | Network/firewall issues | Ensure outbound access to Azure services; check VPN settings |
 > | "Subscription not found" error | Incorrect Subscription ID | Double-check the ID in Azure Portal under Subscriptions |
 > | Dashboard doesn't open | Port conflict | Check terminal output for the actual dashboard URL |
@@ -190,14 +304,14 @@ dotnet test tests/AgentEvalsWorkshop.Tests --filter "FullyQualifiedName~Configur
 
 You're ready to proceed to the exercises when:
 
-- [ ] Repository is cloned and solution opens without errors
-- [ ] Aspire AppHost starts and the dashboard is accessible
-- [ ] Azure credentials are configured (via dashboard or user secrets)
-- [ ] The ++chat++ and ++agents++ resources show as Running/Healthy in the dashboard
-- [ ] Configuration smoke tests pass
+- [ ] Repository is cloned and the solution / `src-python/` folder opens without errors
+- [ ] The Aspire AppHost starts and the dashboard is accessible
+- [ ] Azure credentials are configured (🟦 .NET: dashboard or user secrets · 🐍 Python: `.env` + `az login`)
+- [ ] Resources are Running/Healthy in the dashboard (🟦 .NET: ++chat++ and ++agents++ · 🐍 Python: ++py-agent++)
+- [ ] The configuration smoke test passes for your track
 
 ## Next Steps
 
 Once your environment is set up, proceed to:
 
-➡️ **[Exercise US1: Task Adherence Evaluation](US1-retrieval-tool.md)** - Create your first agent evaluation test using the TaskAdherenceEvaluator
+➡️ **[Exercise US1: Task Adherence Evaluation](US1-taskadheranceeval.md)** - Create your first agent evaluation test using the TaskAdherenceEvaluator

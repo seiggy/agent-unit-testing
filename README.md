@@ -1,16 +1,24 @@
 # Agent Evaluations Workshop
 
-A hands-on workshop for learning how to evaluate AI agents using .NET, Microsoft.Extensions.AI, and Azure AI Foundry. This project demonstrates best practices for testing and evaluating AI agent behavior including retrieval accuracy, tool calling, task adherence, intent resolution, and prompt engineering.
+A hands-on workshop for learning how to evaluate AI agents using .NET, Microsoft.Extensions.AI, and Azure AI Foundry. This project demonstrates best practices for testing and evaluating AI agent behavior including retrieval accuracy, tool calling, task adherence, intent resolution, and prompt engineering. A parallel **🐍 Python track** (see [`src-python/`](src-python/)) mirrors the vertical slice using the Microsoft Agent Framework for Python and `azure-ai-evaluation`.
 
 ## 🎯 Overview
 
 This workshop teaches you how to build reliable AI agents by implementing structured evaluation patterns. You'll learn to:
 
-- **Evaluate retrieval accuracy** - Ensure your agent retrieves the correct documents from a vector database
+- **Evaluate retrieval accuracy** - Ensure your agent retrieves the correct documents from its knowledge source
 - **Validate tool calling** - Verify that agents call the right tools with correct arguments
 - **Measure task adherence** - Confirm agents follow instructions and constraints
 - **Assess intent resolution** - Test disambiguation of user queries
 - **Iterate on prompts** - Use meta-prompt evaluation loops to improve agent behavior
+
+> **🐍 Python track:** The US0 + US1 vertical slice is also available in Python under
+> [`src-python/`](src-python/) (the uv-managed agent app), [`tests-python/`](tests-python/) (pytest
+> scaffolding), and [`solutions-python/`](solutions-python/) (reference solutions). It is orchestrated by a
+> dedicated C# Aspire host, **`src/AgentEvalsWorkshop.Python.AppHost`**, and built with
+> [uv](https://docs.astral.sh/uv/), the [Microsoft Agent Framework](https://github.com/microsoft/agent-framework),
+> and [`azure-ai-evaluation`](https://learn.microsoft.com/azure/ai-foundry/how-to/develop/evaluate-sdk).
+> Each exercise presents the .NET and Python paths side-by-side.
 
 ## 🏗️ Architecture
 
@@ -21,10 +29,8 @@ flowchart TB
     subgraph AppHost["AppHost (Aspire)"]
         direction LR
         Agent["Agent Service<br/>(ASP.NET Core)"]
-        Postgres[("Azure Postgres<br/>(pgvector)")]
         Foundry["Azure AI Foundry<br/>(GPT-5)"]
         
-        Agent <--> Postgres
         Agent <--> Foundry
     end
 ```
@@ -33,17 +39,18 @@ flowchart TB
 
 | Project | Description |
 |---------|-------------|
-| `AgentEvalsWorkshop` | Main agent service with retrieval, tools, and agent logic |
+| `AgentEvalsWorkshop` | Main agent service with tools and agent logic |
 | `AgentEvalsWorkshop.AppHost` | .NET Aspire orchestrator for local development |
 | `AgentEvalsWorkshop.ServiceDefaults` | Shared service configuration and extensions |
 | `AgentEvalsWorkshop.Tests` | Evaluation tests using Microsoft.Extensions.AI.Evaluation |
+| `AgentEvalsWorkshop.Python.AppHost` | .NET Aspire host that launches the 🐍 Python agent app (`py-agent`) |
 
 ## 📋 Prerequisites
 
-- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) or later
-- [Docker Desktop](https://www.docker.com/products/docker-desktop/) (for PostgreSQL with pgvector)
+- [.NET 10 SDK](https://dotnet.microsoft.com/download/dotnet/10.0) or later (required for the Aspire AppHost in both tracks)
 - [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) (for Azure resources)
 - An Azure subscription with access to Azure AI Foundry (optional - supports recordings for offline use)
+- **🐍 Python track only:** [uv](https://docs.astral.sh/uv/) and Python 3.12 (uv installs it automatically if missing)
 
 ## 🚀 Getting Started
 
@@ -164,17 +171,19 @@ agent-unit-testing/
 │   ├── US3-customevaluator.md    # Creating a Custom Evaluator
 │   └── US4-meta-prompt.md        # Meta-Prompt Improvement Loop
 ├── infra/
-│   ├── scripts/                  # Infrastructure scripts
-│   └── seed/                     # Seed data for PostgreSQL
+│   └── scripts/                  # Infrastructure scripts
 ├── src/
 │   ├── AgentEvalsWorkshop/       # Main agent service
 │   │   ├── Agents/               # Agent implementations
-│   │   ├── Retrieval/            # Vector retrieval logic
 │   │   └── Tools/                # Agent tools
-│   ├── AgentEvalsWorkshop.AppHost/        # Aspire orchestrator
+│   ├── AgentEvalsWorkshop.AppHost/         # Aspire orchestrator (.NET track)
+│   ├── AgentEvalsWorkshop.Python.AppHost/  # Aspire host for the Python track (py-agent)
 │   └── AgentEvalsWorkshop.ServiceDefaults/ # Shared configuration
+├── src-python/                   # 🐍 Python agent app (uv-managed, agent-framework)
 ├── tests/
-│   └── AgentEvalsWorkshop.Tests/ # Evaluation tests
+│   └── AgentEvalsWorkshop.Tests/ # Evaluation tests (.NET)
+├── tests-python/                 # 🐍 pytest scaffolding (azure-ai-evaluation)
+├── solutions-python/             # 🐍 Python reference solutions
 └── TestResults/                  # Test output and reports
 ```
 
@@ -208,7 +217,8 @@ The application uses standard ASP.NET Core configuration. Key settings:
 - [Microsoft.Extensions.AI Documentation](https://learn.microsoft.com/dotnet/ai/)
 - [.NET Aspire Documentation](https://learn.microsoft.com/dotnet/aspire/)
 - [Azure AI Foundry](https://learn.microsoft.com/azure/ai-studio/)
-- [pgvector Extension](https://github.com/pgvector/pgvector)
+- [Microsoft Agent Framework](https://github.com/microsoft/agent-framework)
+- [azure-ai-evaluation SDK](https://learn.microsoft.com/azure/ai-foundry/how-to/develop/evaluate-sdk)
 
 ## 📄 License
 

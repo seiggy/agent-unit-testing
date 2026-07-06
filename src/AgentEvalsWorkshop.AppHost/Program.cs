@@ -22,7 +22,7 @@ try
 
     if (!string.IsNullOrEmpty(gptDeploymentName))
     {
-        var gpt52chat = foundry.AddDeployment(gptDeploymentName, AIFoundryModel.OpenAI.Gpt41)
+        var gpt52chat = foundry.AddDeployment(gptDeploymentName, AIFoundryModel.OpenAI.Gpt52)
             .WithProperties(deployment =>
             {
                 deployment.SkuCapacity = 50;

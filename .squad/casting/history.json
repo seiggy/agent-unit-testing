@@ -1,0 +1,23 @@
+{
+  "universe_usage_history": [
+    {
+      "universe": "The X-Files",
+      "assigned_at": "2026-07-06T09:03:48-04:00",
+      "assignment_id": "asg-2026-07-06-xfiles",
+      "reason": "User explicitly requested The X-Files universe."
+    }
+  ],
+  "assignment_cast_snapshots": {
+    "asg-2026-07-06-xfiles": {
+      "universe": "The X-Files",
+      "created_at": "2026-07-06T09:03:48-04:00",
+      "cast": {
+        "skinner": "Lead",
+        "mulder": "Agent/Backend Dev",
+        "scully": "Test & Evals Engineer",
+        "krycek": "DevOps / Infra",
+        "byers": "Docs / DevRel"
+      }
+    }
+  }
+}

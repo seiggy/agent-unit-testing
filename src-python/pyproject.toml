@@ -1,0 +1,48 @@
+[project]
+name = "agent-evals-workshop"
+version = "0.1.0"
+description = "Python track for the Agent Evals Workshop — US1 weather assistant agent (A2A + FastAPI)."
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    # Microsoft Agent Framework (Python). Lean, explicit sub-packages instead of the
+    # `agent-framework` meta package, which pulls `agent-framework-core[all]` (bedrock,
+    # hyperlight native builds, etc.) and is heavy/fragile to install on Windows.
+    "agent-framework-core>=1.10.0,<2",
+    "agent-framework-openai>=1.10.0,<2",
+    "agent-framework-a2a>=1.0.0b0",
+    "a2a-sdk[http-server]>=1.1,<2",
+    "azure-identity>=1.19",
+    "azure-ai-projects>=2.0",
+    "fastapi>=0.115",
+    "uvicorn[standard]>=0.32",
+    "python-dotenv>=1.0",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3",
+    "pytest-asyncio>=0.24",
+    "azure-ai-evaluation>=1.17",
+    # Used by the US0 configuration smoke test to hit the FastAPI /health probe.
+    "httpx>=0.28",
+]
+
+[tool.uv]
+# All a2a-sdk / agent-framework-a2a releases are pre-release (beta); allow them.
+prerelease = "allow"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["agent_evals_workshop"]
+
+[tool.pytest.ini_options]
+testpaths = ["../tests-python"]
+asyncio_mode = "auto"
+pythonpath = ["."]
+markers = [
+    "foundry: requires a live Foundry chat deployment (skipped offline)",
+]
