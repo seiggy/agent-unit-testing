@@ -19,21 +19,14 @@ var foundry = builder.AddAzureAIFoundry("az-foundry")
 try
 {
     var gptDeploymentName = await gptDeployment.Resource.GetValueAsync(System.Threading.CancellationToken.None);
-
+    var chatConnectionString = builder.AddConnectionString("chat", ReferenceExpression.Create($"{foundry};Deployment=chat"));
     if (!string.IsNullOrEmpty(gptDeploymentName))
     {
-        var gpt52chat = foundry.AddDeployment(gptDeploymentName, AIFoundryModel.OpenAI.Gpt41)
-            .WithProperties(deployment =>
-            {
-                deployment.SkuCapacity = 50;
-            });
-
-
         // Agent project
         var agent = builder.AddProject<Projects.AgentEvalsWorkshop>("agents")
             .WithReference(foundry)
             .WithEnvironment("FOUNDRY_DEPLOYMENT_NAME", gptDeploymentName)
-            .WithReference(gpt52chat);
+            .WithReference(chatConnectionString);
     }
 
 }
