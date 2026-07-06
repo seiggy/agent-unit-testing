@@ -16,6 +16,18 @@ builder.Services.AddOpenApi();
 var endpoint = ConnectionStringParser.GetEndpointFromConnectionString(builder.Configuration.GetConnectionString("az-foundry")!);
 var foundryDeploymentName = builder.Configuration["FOUNDRY_DEPLOYMENT_NAME"]!;
 
+var azureOpenAIClient = new AzureOpenAIClient(
+    endpoint,
+    new DefaultAzureCredential(),
+    new AzureOpenAIClientOptions(AzureOpenAIClientOptions.ServiceVersion.V2025_04_01_Preview)
+    {
+        ClientLoggingOptions = new System.ClientModel.Primitives.ClientLoggingOptions
+        {
+            EnableMessageContentLogging = true,
+            EnableLogging = true,
+        }
+    });
+
 builder.Services.AddSingleton(_ => new AzureOpenAIClient(
     endpoint,
     new DefaultAzureCredential(),
@@ -35,6 +47,7 @@ builder.Services.AddSingleton<IChatClient>(sp =>
         .AsIChatClient();
 });
 
+builder.Services.AddA2AServer(US1Agent.BuildUS1Agent(azureOpenAIClient.GetChatClient(foundryDeploymentName).AsIChatClient()));
 
 var app = builder.Build();
 
@@ -47,7 +60,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.MapA2A(US1Agent.BuildUS1Agent(app.Services.GetRequiredService<IChatClient>()), "/us1agent");
+app.MapA2AJsonRpc(US1Agent.BuildUS1Agent(app.Services.GetRequiredService<IChatClient>()), "/us1agent");
 
 app.Run();
 

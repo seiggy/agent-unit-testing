@@ -3,7 +3,6 @@ using Aspire.Hosting.ApplicationModel;
 using Aspire.Hosting.Azure;
 using Azure.Core;
 using Azure.Provisioning.CognitiveServices;
-using Humanizer.Localisation;
 using System;
 using System.Linq;
 

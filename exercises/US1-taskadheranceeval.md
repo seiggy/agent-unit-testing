@@ -270,7 +270,7 @@ dotnet aieval report -p C:\TestReports -o test-report.html
   - **Diagnostics**: The evaluator's chain-of-thought reasoning showing step-by-step analysis of tool usage and response quality
 - **Metadata Table**: Key-value pairs including:
   - `built-in-eval`: Whether the evaluator is built-in
-  - `eval-model`: The model used for evaluation (e.g., `gpt-4o-2024-11-20`)
+  - `eval-model`: The model used for evaluation (e.g., `gpt-5.4`)
   - `eval-input-tokens` / `eval-output-tokens` / `eval-total-tokens`: Token usage for the evaluation
   - `eval-duration-ms`: Time taken for the evaluation
 - **Conversation Panel**: Collapsible section showing token counts and the full message exchange
